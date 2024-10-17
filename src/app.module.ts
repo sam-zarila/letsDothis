@@ -5,6 +5,7 @@ import { AdminModule } from './admin/admin.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { adminEntity } from './Entities/admin.entity';
 import { MarketlistingModule } from './marketlisting/marketlisting.module';
+import { marketEntity } from './Entities/marketListing.Entitty';
 
 @Module({
   imports: [
@@ -14,7 +15,7 @@ import { MarketlistingModule } from './marketlisting/marketlisting.module';
       port:3306,
       username:'root',
       database:'business',
-      entities:[adminEntity],
+      entities:[adminEntity, marketEntity],
       synchronize:true
 
     }),
