@@ -17,13 +17,15 @@ export class MarketlistingController {
   @ApiOperation({summary: 'create new market item'})
   @ApiResponse({status:204, description:'market listing created successifully'})
 
-  createItem(){
+  createItem(@Body() market:marketEntity){
+    return this.marketService.create(market)
 
   }
   @Get('retrieve')
   @ApiOperation({summary:'retrieve all the market items'})
   @ApiResponse({status:204, description:'market listing retrieved successifully'})
-  async getItems(){
+  async getItems():Promise<marketEntity[]>{
+    return this.marketService.findListing()
 
   }
 
@@ -37,7 +39,9 @@ export class MarketlistingController {
   updateItem(
     @Param('id') id:number,
     @Body() updateData:Partial<marketEntity>
-  ){
+  ):Promise<marketEntity>{
+    return this.marketService.update(id, updateData);
+
 
   }
  
