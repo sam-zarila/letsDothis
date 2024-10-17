@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AdminModule } from './admin/admin.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { adminEntity } from './Entities/admin.entity';
 
 @Module({
   imports: [
@@ -12,7 +13,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       port:3306,
       username:'root',
       database:'business',
-      entities:[],
+      entities:[adminEntity],
       synchronize:true
 
     }),
