@@ -4,7 +4,7 @@ import { adminEntity } from 'src/Entities/admin.entity';
 import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 import * as jwt from 'jsonwebtoken';
-import { Blacklist } from 'src/Entities/blacklist.entity';
+// import { Blacklist } from 'src/Entities/blacklist.entity';
 
 
 
@@ -16,7 +16,7 @@ export class AdminService {
 
     constructor(
         @InjectRepository(adminEntity) private readonly adminRepository:Repository<adminEntity>,
-        @InjectRepository(Blacklist) private readonly blackRepository:Repository<Blacklist>
+        // @InjectRepository(Blacklist) private readonly blackRepository:Repository<Blacklist>
     ){}
 
     async createadmin(email:string, username:string, password:string){
@@ -38,7 +38,19 @@ export class AdminService {
 
 
     }
-    async logout(token: string): Promise{
+    // async logout(token: string): Promise<void>{
+    //     const decoded = jwt.verify(token, this.jwtSecret) as {exp:number};
+    //     const expirateDate = new Date(decoded.exp*1000);
+    //     const blacklistedToken = this.blackRepository.create({token, expirateDate});
+    //     await this.blackRepository.save(blacklistedToken);
 
-    }
+    // }
+    // async isTokenBlacked(token:string): Promise<boolean>{
+    //     const blacklistedToken = await this.blackRepository.findOne({where :{
+    //         token
+    //     }
+      
+    // })
+    // return !!blacklistedToken;
+    // }
 }

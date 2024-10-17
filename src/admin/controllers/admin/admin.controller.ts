@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post, Req, Res } from '@nestjs/common';
 import { ApiBody, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { AdminService } from 'src/admin/services/admin/admin.service';
 import { adminLoginDto } from 'src/DTOs/admin.login.DTO';
@@ -29,6 +29,14 @@ export class AdminController {
         const accessToken = await this.adminService.Login(adminLoginDto.username, adminLoginDto.password)
         return{access_token:accessToken};
      }
+
+   //   @Post('signout')
+   //   @ApiOperation({ summary: 'logins the admin'})
+
+   //   async signout(@Req() req:Request, @Res() res:Response){
+   //    const token = req.headers.authorization?.split(' ')[1];
+
+   //   }
 
 
 

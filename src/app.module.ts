@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { AdminModule } from './admin/admin.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { adminEntity } from './Entities/admin.entity';
+import { MarketlistingModule } from './marketlisting/marketlisting.module';
 
 @Module({
   imports: [
@@ -17,7 +18,8 @@ import { adminEntity } from './Entities/admin.entity';
       synchronize:true
 
     }),
-     AdminModule],
+     AdminModule,
+     MarketlistingModule],
   controllers: [AppController],
   providers: [AppService],
 })

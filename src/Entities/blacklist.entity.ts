@@ -1,14 +1,14 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+// import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity()
+// @Entity()
 
-  export class Blacklist{
-    @PrimaryGeneratedColumn()
-     id: number
+//   export class Blacklist{
+//     @PrimaryGeneratedColumn()
+//      id: number
 
-     @Column()
+//      @Column()
 
-     token:string
-     @Column()
-      expirateDate:Date
-  }
+//      token:string
+//      @Column()
+//       expirateDate:Date
+//   }
