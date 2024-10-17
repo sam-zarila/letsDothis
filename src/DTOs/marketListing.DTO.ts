@@ -7,6 +7,9 @@ export class marketListingDTO{
     @ApiProperty({description:'image of the item'})
     
     image:string
+    
+    @ApiProperty({description:'description of the item'})
+    name:string
 
     @ApiProperty({description:'description of the item'})
     

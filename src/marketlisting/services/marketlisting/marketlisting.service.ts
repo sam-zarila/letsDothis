@@ -7,15 +7,15 @@ import { Repository } from 'typeorm';
 export class MarketlistingService {
    
     constructor(
-        @InjectRepository(marketEntity) private readonly marketRepository:Repository<marketEntity>
+        @InjectRepository(marketEntity) private  marketRepository:Repository<marketEntity>
     ){}
 
-    async create(marketEntity:marketEntity){
+     create(marketEntity:marketEntity){
 
         return this.marketRepository.save(marketEntity)
 
     }
-    async findListing(): Promise<marketEntity[]>{
+     findListing(): Promise<marketEntity[]>{
 
         return this.marketRepository.find()
     }

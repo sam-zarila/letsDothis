@@ -1,5 +1,6 @@
 import { Body, Controller, Get, Param, Post, Put,Delete } from '@nestjs/common';
 import { ApiBody, ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { marketListingDTO } from 'src/DTOs/marketListing.DTO';
 import { marketEntity } from 'src/Entities/marketListing.Entitty';
 import { MarketlistingService } from 'src/marketlisting/services/marketlisting/marketlisting.service';
 
@@ -12,19 +13,19 @@ export class MarketlistingController {
     private readonly marketService:MarketlistingService
   ){ }
   
-  @Post('creating new market item')
+  @Post()
   @ApiBody({type:marketEntity})
   @ApiOperation({summary: 'create new market item'})
-  @ApiResponse({status:204, description:'market listing created successifully'})
+  @ApiResponse({status:201, description:'market listing created successifully'})
 
   createItem(@Body() market:marketEntity){
     return this.marketService.create(market)
 
   }
-  @Get('retrieve')
+  @Get()
   @ApiOperation({summary:'retrieve all the market items'})
   @ApiResponse({status:204, description:'market listing retrieved successifully'})
-  async getItems():Promise<marketEntity[]>{
+  async getItems():Promise<marketListingDTO[]>{
     return this.marketService.findListing()
 
   }
