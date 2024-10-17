@@ -45,6 +45,14 @@ export class MarketlistingController {
 
 
   }
+  @Delete(':id')
+  @ApiOperation({summary: 'delete the listing'})
+  @ApiParam({name:'id', description:'property deleted succesifully'})
+
+  removeMarketListing(@Param('id') id:number){
+    return this.marketService.remove(id)
+
+  }
  
 
   
