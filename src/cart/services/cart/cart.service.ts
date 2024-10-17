@@ -27,12 +27,29 @@ export class CartService {
             return {message:'Item quatinty updated in your cart'}
             
           }
+
+          const newItem = this.addTocartRepository.create({item,quantity,image,name,description,price,location})
+          await this.addTocartRepository.save(newItem)
           
         } catch (error) {
+            console.error('error adding items to cart:',error);
+            throw new Error('could not add item to cart')
           
         }
     
       }
+ async getCartItems():Promise<CartEntity[]>{
+    try {
 
+        const cartItems = await  this.addTocartRepository.find();
+        return cartItems;
+        
+    } catch (error) {
+        console.error('error fetching items from cart:',error);
+        throw new Error('could not  fetch item from cart')
+      
+        
+    }
+ }
 
 }
