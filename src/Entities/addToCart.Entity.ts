@@ -2,13 +2,22 @@ import { ApiProperty } from "@nestjs/swagger";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
-export class marketEntity{
+
+export class CartEntity{
     @ApiProperty({ description:'identifier'})
     @PrimaryGeneratedColumn()
     id:number
 
     @ApiProperty({description:'image of the item'})
-        @Column({type:'text'})
+    @Column()
+    item:number
+
+    @ApiProperty({description:'image of the item'})
+    @Column()
+    quantity:number
+
+    @ApiProperty({description:'image of the item'})
+    @Column({type:'text'})
      image:string
 
     @ApiProperty({description:'image of the item'})
@@ -18,7 +27,7 @@ export class marketEntity{
     
 
     @ApiProperty({description:'description of the item'})
-        @Column({type:'text'})
+    @Column({type:'text'})
     description:string
 
     @ApiProperty({description:'price of the item'})
@@ -29,6 +38,5 @@ export class marketEntity{
     @Column({type:'varchar', length:255})
 
     location:string
-
 
 }

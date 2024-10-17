@@ -6,6 +6,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { adminEntity } from './Entities/admin.entity';
 import { MarketlistingModule } from './marketlisting/marketlisting.module';
 import { marketEntity } from './Entities/marketListing.Entitty';
+import { CartModule } from './cart/cart.module';
+import { CartEntity } from './Entities/addToCart.Entity';
 
 @Module({
   imports: [
@@ -15,12 +17,13 @@ import { marketEntity } from './Entities/marketListing.Entitty';
       port:3306,
       username:'root',
       database:'business',
-      entities:[adminEntity, marketEntity],
+      entities:[adminEntity, marketEntity, CartEntity],
       synchronize:true
 
     }),
      AdminModule,
-     MarketlistingModule],
+     MarketlistingModule,
+     CartModule],
   controllers: [AppController],
   providers: [AppService],
 })
