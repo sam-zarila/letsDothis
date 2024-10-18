@@ -10,6 +10,8 @@ import { CartModule } from './cart/cart.module';
 import { CartEntity } from './Entities/addToCart.Entity';
 import { DrinksModule } from './drinks/drinks.module';
 import { drinksEntity } from './Entities/drinks.Entity';
+import { PharmacyModule } from './pharmacy/pharmacy.module';
+import { BakeryModule } from './bakery/bakery.module';
 
 @Module({
   imports: [
@@ -26,7 +28,9 @@ import { drinksEntity } from './Entities/drinks.Entity';
      AdminModule,
      MarketlistingModule,
      CartModule,
-     DrinksModule],
+     DrinksModule,
+     PharmacyModule,
+     BakeryModule],
   controllers: [AppController],
   providers: [AppService],
 })
