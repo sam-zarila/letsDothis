@@ -21,8 +21,8 @@ export class drinksEntity{
     
 
     @ApiProperty({description:'description of the item'})
-        @Column({type:'text'})
-    description:string
+    @Column({type:'text'})
+    provider:string
 
     @ApiProperty({description:'price of the item'})
     @Column({type:'varchar', length:255})

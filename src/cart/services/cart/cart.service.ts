@@ -13,9 +13,9 @@ export class CartService {
 
     async  addTocart(addToCart:addToCartDto) : Promise<{message:string}>{
 
-        const {item,quantity,image,name,description,price,location} = addToCart;
+        const {item,quantity,image,name,provider,price,location} = addToCart;
     
-        console.log('adding to cart:',{item,quantity,image,name,description,price,location});
+        console.log('adding to cart:',{item,quantity,image,name,provider,price,location});
     
         try {
     
@@ -28,7 +28,7 @@ export class CartService {
             
           }
 
-          const newItem = this.addTocartRepository.create({item,quantity,image,name,description,price,location})
+          const newItem = this.addTocartRepository.create({item,quantity,image,name,provider,price,location})
           await this.addTocartRepository.save(newItem)
           
         } catch (error) {

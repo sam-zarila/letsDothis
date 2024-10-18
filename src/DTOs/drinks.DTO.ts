@@ -13,7 +13,7 @@ export class drinksDTO{
 
     @ApiProperty({description:'description of the item'})
     
-    description:string
+    provider:string
 
     @ApiProperty({description:'price of the item'})
     

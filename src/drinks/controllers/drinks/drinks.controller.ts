@@ -33,27 +33,27 @@ export class DrinksController {
     }
     
     @Put(':id')
-    @ApiParam({name:'id', description:"unique identity of the drinks", type:Number})
+    @ApiParam({name: 'id', description:'the ID of the item', type:Number})
+    @ApiOperation({summary:'update the market item'})
     @ApiBody({type:drinksEntity})
-    @ApiOperation({summary:'update the drinks '})
-    @ApiResponse({status:201, description:'drinks update'})
-
-    updtateDrink(
-        @Param(':id') id:number,
-        @Body() updateData:Partial<drinksEntity>
-       
-    ){
-        return this.drinksService.updateDrinks(id,updateData);
-
+    @ApiOperation({summary: 'create new market item'})
+    @ApiResponse({status:204, description:'market listing created successifully'})
+  
+    updateItem(
+      @Param('id') id:number,
+      @Body() updateData:Partial<drinksEntity>
+    ):Promise<drinksEntity>{
+      return this.drinksService.updateDrinks(id, updateData);
+  
+  
     }
     @Delete(':id')
-    @ApiParam({name:'id', description:'deleted'})
-    @ApiOperation({summary:'drink deleted'})
-
-    removeDrink(@Param(':id') id:number){
-
-        return this.drinksService.remove(id)
-
+    @ApiOperation({summary: 'delete the listing'})
+    @ApiParam({name:'id', description:'property deleted succesifully'})
+  
+    removeMarketListing(@Param('id') id:number){
+      return this.drinksService.remove(id)
+  
     }
 
     
