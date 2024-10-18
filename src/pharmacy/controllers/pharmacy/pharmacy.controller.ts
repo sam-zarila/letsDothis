@@ -1,5 +1,5 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
-import { ApiBody, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import { ApiBody, ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { pharmarcyDTO } from 'src/DTOs/pharmacy.DTO';
 import { pharmarcyEntity } from 'src/Entities/pharmacy.Entity';
 import { PharmacyService } from 'src/pharmacy/services/pharmacy/pharmacy.service';
@@ -29,6 +29,21 @@ export class PharmacyController {
     getAll() :Promise<pharmarcyDTO[]>{
         return this.pharmarcyService.findPharmarcy()
     }
+    @Put(':id')
+    @ApiParam({name: 'id', description:'the ID of the item', type:Number})
+    @ApiOperation({summary:'update the market item'})
+    @ApiBody({type:pharmarcyEntity})
+    @ApiOperation({summary: 'create new market item'})
+    @ApiResponse({status:204, description:'market listing created successifully'})
+
+    updatePharmarcy(
+        @Param(':id') id:number,
+        @Body() updateData:Partial<pharmarcyEntity>
+    ):Promise<pharmarcyEntity>{
+        return this.pharmarcyService.updatePharmacy(id,updateData)
+        
+    }
+
 
 
 
