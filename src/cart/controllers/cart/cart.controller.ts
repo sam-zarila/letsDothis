@@ -16,7 +16,6 @@ export class CartController {
     async addTocart(
         @Body() addTocart:addToCartDto
     ){
-
         try {
             const result =await this.cartService.addTocart(addTocart)
             return result

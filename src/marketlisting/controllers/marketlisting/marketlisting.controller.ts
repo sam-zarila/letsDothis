@@ -20,30 +20,24 @@ export class MarketlistingController {
 
   createItem(@Body() market:marketEntity){
     return this.marketService.create(market)
-
   }
   @Get()
   @ApiOperation({summary:'retrieve all the market items'})
   @ApiResponse({status:204, description:'market listing retrieved successifully'})
   async getItems():Promise<marketListingDTO[]>{
     return this.marketService.findListing()
-
   }
-
   @Put(':id')
   @ApiParam({name: 'id', description:'the ID of the item', type:Number})
   @ApiOperation({summary:'update the market item'})
   @ApiBody({type:marketEntity})
   @ApiOperation({summary: 'create new market item'})
   @ApiResponse({status:204, description:'market listing created successifully'})
-
   updateItem(
     @Param('id') id:number,
     @Body() updateData:Partial<marketEntity>
   ):Promise<marketEntity>{
     return this.marketService.update(id, updateData);
-
-
   }
   @Delete(':id')
   @ApiOperation({summary: 'delete the listing'})

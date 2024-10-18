@@ -12,6 +12,7 @@ import { DrinksModule } from './drinks/drinks.module';
 import { drinksEntity } from './Entities/drinks.Entity';
 import { PharmacyModule } from './pharmacy/pharmacy.module';
 import { BakeryModule } from './bakery/bakery.module';
+import { pharmarcyEntity } from './Entities/pharmacy.Entity';
 
 @Module({
   imports: [
@@ -21,7 +22,7 @@ import { BakeryModule } from './bakery/bakery.module';
       port:3306,
       username:'root',
       database:'business',
-      entities:[adminEntity, marketEntity, CartEntity, drinksEntity],
+      entities:[adminEntity, marketEntity, CartEntity, drinksEntity,pharmarcyEntity],
       synchronize:true
 
     }),
