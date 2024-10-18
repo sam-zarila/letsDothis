@@ -8,6 +8,7 @@ import { MarketlistingModule } from './marketlisting/marketlisting.module';
 import { marketEntity } from './Entities/marketListing.Entitty';
 import { CartModule } from './cart/cart.module';
 import { CartEntity } from './Entities/addToCart.Entity';
+import { DrinksModule } from './drinks/drinks.module';
 
 @Module({
   imports: [
@@ -23,7 +24,8 @@ import { CartEntity } from './Entities/addToCart.Entity';
     }),
      AdminModule,
      MarketlistingModule,
-     CartModule],
+     CartModule,
+     DrinksModule],
   controllers: [AppController],
   providers: [AppService],
 })

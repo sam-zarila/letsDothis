@@ -20,7 +20,7 @@ export class AdminController {
         const admin = await this.adminService.createadmin(email, username, password)
         return(admin)
      }
-     @Post('signIn')
+     @Post('signIn' )
      @ApiOperation({ summary: 'logins the admin'})
      @ApiResponse({ status: 200, description: 'Login successful', schema: { example: { access_token: 'jwt_token' } } })
      async signup(
