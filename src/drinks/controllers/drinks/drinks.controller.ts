@@ -1,5 +1,5 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
-import { ApiBody, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { ApiBody, ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { DrinksService } from 'src/drinks/services/drinks/drinks.service';
 import { drinksDTO } from 'src/DTOs/drinks.DTO';
 import { drinksEntity } from 'src/Entities/drinks.Entity';
@@ -31,6 +31,35 @@ export class DrinksController {
     getDrink():Promise<drinksDTO[]>{
         return this.drinksService.findDrinks()
     }
+    
+    @Put(':id')
+    @ApiParam({name:'id', description:"unique identity of the drinks", type:Number})
+    @ApiBody({type:drinksEntity})
+    @ApiOperation({summary:'update the drinks '})
+    @ApiResponse({status:201, description:'drinks update'})
+
+    updtateDrink(
+        @Param(':id') id:number,
+        @Body() updateData:Partial<drinksEntity>
+       
+    ){
+        return this.drinksService.updateDrinks(id,updateData);
+
+    }
+    @Delete(':id')
+    @ApiParam({name:'id', description:'deleted'})
+    @ApiOperation({summary:'drink deleted'})
+
+    removeDrink(@Param(':id') id:number){
+
+        return this.drinksService.remove(id)
+
+    }
+
+    
+
+
+    
 
 
 }
