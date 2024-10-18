@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { ApiBody, ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { pharmarcyDTO } from 'src/DTOs/pharmacy.DTO';
 import { pharmarcyEntity } from 'src/Entities/pharmacy.Entity';
@@ -35,7 +35,6 @@ export class PharmacyController {
     @ApiBody({type:pharmarcyEntity})
     @ApiOperation({summary: 'create new market item'})
     @ApiResponse({status:204, description:'market listing created successifully'})
-
     updatePharmarcy(
         @Param(':id') id:number,
         @Body() updateData:Partial<pharmarcyEntity>
@@ -43,6 +42,15 @@ export class PharmacyController {
         return this.pharmarcyService.updatePharmacy(id,updateData)
         
     }
+    @Delete()
+    @ApiOperation({summary: 'delete the pharmarcy'})
+    @ApiParam({name:'id', description:'property deleted succesifully'})
+
+    removePharmarcy(@Param() id:number){
+        return this.pharmarcyService.removePharmacy(id)
+
+    }
+  
 
 
 
