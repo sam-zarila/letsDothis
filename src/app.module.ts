@@ -9,6 +9,7 @@ import { marketEntity } from './Entities/marketListing.Entitty';
 import { CartModule } from './cart/cart.module';
 import { CartEntity } from './Entities/addToCart.Entity';
 import { DrinksModule } from './drinks/drinks.module';
+import { drinksEntity } from './Entities/drinks.Entity';
 
 @Module({
   imports: [
@@ -18,7 +19,7 @@ import { DrinksModule } from './drinks/drinks.module';
       port:3306,
       username:'root',
       database:'business',
-      entities:[adminEntity, marketEntity, CartEntity],
+      entities:[adminEntity, marketEntity, CartEntity, drinksEntity],
       synchronize:true
 
     }),
